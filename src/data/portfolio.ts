@@ -10,7 +10,7 @@ export const profile = {
   hero: {
     heading: {
       firstLine: "I\u2019m Jeni\u00F1a",
-      secondLine: "Margarette G. Vargas",
+      secondLine: "Margaret G. Vargas",
     },
     summary: {
       lead: "An IT student and web developer building thoughtful interfaces and reliable database-driven systems that make everyday workflows feel effortless using ",
