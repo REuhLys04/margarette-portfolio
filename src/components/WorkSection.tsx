@@ -52,9 +52,9 @@ export function WorkSection() {
                 </div>
               </div>
               {project.image && (
-                <div className="absolute -right-10 -top-16 hidden h-64 w-64 rotate-6 overflow-hidden rounded-full border-8 border-[#8fa2ff] opacity-25 xl:block">
+                <div className="mt-12 overflow-hidden rounded-2xl border border-[#171714]/15 bg-[#171714]/10 shadow-[0_20px_50px_-15px_rgba(23,23,20,0.28)]">
                   <img
-                    className="h-full w-full object-cover grayscale"
+                    className="aspect-[16/7.8] w-full object-cover object-top transition-transform duration-500 hover:scale-[1.015]"
                     src={project.image}
                     alt={project.imageAlt}
                   />

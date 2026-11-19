@@ -1,3 +1,6 @@
+import barkadabyteImg from "../assets/barkadabyte.png";
+import scan2borrowImg from "../assets/scan2borrow-img.jpg";
+
 export const navigationItems = [
   { label: "Work", href: "#work" },
   { label: "About", href: "#about" },
@@ -72,9 +75,8 @@ export const projects = [
       "Built PHP and MySQL workflows, connected database operations to a responsive interface, and refactored legacy code while preserving core business logic.",
     tags: ["HTML5", "CSS3", "JavaScript", "PHP", "MySQL"],
     accent: "blue",
-    image:
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&q=80&w=600",
-    imageAlt: "Code displayed on a laptop at a developer workspace",
+    image: scan2borrowImg,
+    imageAlt: "Scan2Borrow library management system student dashboard",
   },
   {
     number: "02",
@@ -86,8 +88,8 @@ export const projects = [
       "Designed the customer-facing experience and built dynamic account and admin features, using localStorage to manage application data.",
     tags: ["HTML5", "CSS3", "JavaScript", "Bootstrap", "localStorage"],
     accent: "coral",
-    image: undefined,
-    imageAlt: undefined,
+    image: barkadabyteImg,
+    imageAlt: "BarkadaByte restaurant web application menu and ordering interface",
   },
 ] as const;
 
