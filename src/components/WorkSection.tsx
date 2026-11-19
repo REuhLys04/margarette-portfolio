@@ -24,6 +24,24 @@ function ExternalLinkIcon() {
   );
 }
 
+function LockIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      className="h-3.5 w-3.5 shrink-0 opacity-70"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+      <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+    </svg>
+  );
+}
+
 export function WorkSection() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [copiedSlug, setCopiedSlug] = useState<string | null>(null);
@@ -31,6 +49,7 @@ export function WorkSection() {
 
   const activeProject: Project | null =
     activeIndex !== null && projects[activeIndex] ? projects[activeIndex] : null;
+  const isBlueAccent = activeProject?.accent === "blue";
 
   const openCaseStudy = (index: number) => {
     setActiveIndex(index);
@@ -174,27 +193,46 @@ export function WorkSection() {
                 </button>
 
                 <div className="flex flex-wrap items-center gap-3">
-                  <a
-                    href={project.liveDemoUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full border border-[#171714]/25 bg-[#f4f0e8]/90 px-5 py-3 text-sm font-semibold text-[#171714] transition hover:-translate-y-0.5 hover:border-[#171714]/45 hover:bg-[#f4f0e8]"
-                  >
-                    <span className="h-2 w-2 rounded-full bg-[#228b54]" />
-                    <span>{workSection.actions.liveDemo}</span>
-                    <ExternalLinkIcon />
-                  </a>
+                  {project.liveDemoUrl ? (
+                    <a
+                      href={project.liveDemoUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 rounded-full border border-[#171714]/25 bg-[#f4f0e8]/90 px-5 py-3 text-sm font-semibold text-[#171714] transition hover:-translate-y-0.5 hover:border-[#171714]/45 hover:bg-[#f4f0e8]"
+                    >
+                      <span className="h-2 w-2 rounded-full bg-[#228b54]" />
+                      <span>{workSection.actions.liveDemo}</span>
+                      <ExternalLinkIcon />
+                    </a>
+                  ) : (
+                    <button
+                      type="button"
+                      disabled
+                      title={project.liveDemoDisabledReason}
+                      className="inline-flex cursor-not-allowed items-center gap-2 rounded-full border border-dashed border-[#171714]/25 bg-[#171714]/8 px-5 py-3 text-sm font-semibold text-[#171714]/65"
+                    >
+                      <LockIcon />
+                      <span>{workSection.actions.liveDemo}</span>
+                      {project.liveDemoDisabledBadge && (
+                        <span className="rounded-full bg-[#171714]/12 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#171714]/75">
+                          {project.liveDemoDisabledBadge}
+                        </span>
+                      )}
+                    </button>
+                  )}
 
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full border border-[#171714]/25 bg-transparent px-5 py-3 text-sm font-semibold text-[#171714] transition hover:-translate-y-0.5 hover:border-[#171714]/50 hover:bg-[#171714]/10"
-                  >
-                    <GithubIcon />
-                    <span>{workSection.actions.githubRepo}</span>
-                    <ExternalLinkIcon />
-                  </a>
+                  {project.githubUrl && (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 rounded-full border border-[#171714]/25 bg-transparent px-5 py-3 text-sm font-semibold text-[#171714] transition hover:-translate-y-0.5 hover:border-[#171714]/50 hover:bg-[#171714]/10"
+                    >
+                      <GithubIcon />
+                      <span>{workSection.actions.githubRepo}</span>
+                      <ExternalLinkIcon />
+                    </a>
+                  )}
                 </div>
               </div>
 
@@ -354,31 +392,50 @@ export function WorkSection() {
 
                 {/* CTA Buttons Row */}
                 <div className="mt-6 flex flex-wrap items-center gap-3">
-                  <a
-                    href={activeProject.liveDemoUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className={`inline-flex items-center gap-2.5 rounded-full px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 ${
-                      activeProject.accent === "blue"
-                        ? "bg-[#2447f9] hover:bg-[#171714]"
-                        : "bg-[#b8371b] hover:bg-[#171714]"
-                    }`}
-                  >
-                    <span className="h-2 w-2 rounded-full bg-[#4ade80]" />
-                    <span>{workSection.actions.liveDemo}</span>
-                    <ExternalLinkIcon />
-                  </a>
+                  {activeProject.liveDemoUrl ? (
+                    <a
+                      href={activeProject.liveDemoUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className={`inline-flex items-center gap-2.5 rounded-full px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:-translate-y-0.5 ${
+                        isBlueAccent
+                          ? "bg-[#2447f9] hover:bg-[#171714]"
+                          : "bg-[#b8371b] hover:bg-[#171714]"
+                      }`}
+                    >
+                      <span className="h-2 w-2 rounded-full bg-[#4ade80]" />
+                      <span>{workSection.actions.liveDemo}</span>
+                      <ExternalLinkIcon />
+                    </a>
+                  ) : (
+                    <button
+                      type="button"
+                      disabled
+                      title={activeProject.liveDemoDisabledReason}
+                      className="inline-flex cursor-not-allowed items-center gap-2.5 rounded-full border border-dashed border-[#171714]/20 bg-[#f4f0e8] px-5 py-3 text-sm font-semibold text-[#171714]/55"
+                    >
+                      <LockIcon />
+                      <span>{workSection.actions.liveDemo}</span>
+                      {activeProject.liveDemoDisabledBadge && (
+                        <span className="rounded-full bg-[#171714]/10 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#171714]/70">
+                          {activeProject.liveDemoDisabledBadge}
+                        </span>
+                      )}
+                    </button>
+                  )}
 
-                  <a
-                    href={activeProject.githubUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-2.5 rounded-full border border-[#171714]/20 bg-white px-6 py-3 text-sm font-semibold text-[#171714] transition hover:-translate-y-0.5 hover:border-[#171714]/40"
-                  >
-                    <GithubIcon />
-                    <span>{workSection.actions.githubRepo}</span>
-                    <ExternalLinkIcon />
-                  </a>
+                  {activeProject.githubUrl && (
+                    <a
+                      href={activeProject.githubUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2.5 rounded-full border border-[#171714]/20 bg-white px-6 py-3 text-sm font-semibold text-[#171714] transition hover:-translate-y-0.5 hover:border-[#171714]/40"
+                    >
+                      <GithubIcon />
+                      <span>{workSection.actions.githubRepo}</span>
+                      <ExternalLinkIcon />
+                    </a>
+                  )}
                 </div>
               </div>
 

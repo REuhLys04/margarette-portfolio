@@ -42,6 +42,8 @@ export function HeroSection() {
 
             <a
               href={hero.actions.resume.href}
+              target="_blank"
+              rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-full border border-[#171714]/15 bg-[#fbf9f5] px-6 py-3.5 text-sm font-semibold text-[#171714] shadow-2xs transition hover:-translate-y-0.5 hover:border-[#171714]/35 hover:bg-white"
             >
               <span>{hero.actions.resume.label}</span>

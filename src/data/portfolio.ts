@@ -26,7 +26,7 @@ export const profile = {
       },
       resume: {
         label: "View resume",
-        href: "#credentials",
+        href: "/jenina resume.pdf",
       },
       secondary: {
         label: "More about me",
@@ -100,6 +100,9 @@ export const projects = [
     image: scan2borrowImg,
     imageAlt: "Scan2Borrow library management system student dashboard",
     liveDemoUrl: "", // no live demo, this is for BCC as an internal tool
+    liveDemoDisabledBadge: "BCC Internal LAN",
+    liveDemoDisabledReason:
+      "Deployed exclusively on Binalbagan Catholic College\u2019s internal library network",
     githubUrl: "https://github.com/adriaanamd/scan2borrow",
     caseStudy: {
       meta: {
@@ -199,9 +202,9 @@ export const projects = [
     track: "Engineering Case Study",
     title: "BarkadaByte",
     eyebrow: "Restaurant \u00B7 Web Experience",
-    caseStudyEyebrow: "Web Application \u00B7 Interactive Restaurant Platform",
+    caseStudyEyebrow: "Web Application \u00B7 Multi-Page Restaurant & Admin Platform",
     subtitle:
-      "An interactive Filipino restaurant web experience featuring instant menu discovery, category filtering, client-side cart workflows, table reservations, and admin management.",
+      "A 9-page Filipino restaurant web platform combining live menu discovery, a 3-step GCash/COD cart checkout with printable receipts, table reservations, and a 5-tab role-guarded admin analytics suite powered by localStorage.",
     description:
       "An interactive restaurant experience with menu discovery, food categories, a shopping cart, and table reservation forms.",
     contribution:
@@ -211,28 +214,30 @@ export const projects = [
     image: barkadabyteImg,
     imageAlt: "BarkadaByte restaurant web application menu and ordering interface",
     liveDemoUrl: "https://barkadabyte.netlify.app",
+    liveDemoDisabledBadge: undefined,
+    liveDemoDisabledReason: undefined,
     githubUrl: "https://github.com/REuhLys04/BarkadaByte-Website",
     caseStudy: {
       meta: {
-        role: "Frontend & UI/UX Developer",
-        context: "Web Development Project \u00B7 Interactive Restaurant System",
-        focusArea: "Menu Discovery \u00B7 Cart & Reservation Flows \u00B7 localStorage State",
+        role: "Project Manager & Frontend / UI Developer",
+        context: "5-Member Team Project \u00B7 Binalbagan, Negros Occidental",
+        focusArea: "9-Page Ordering Flow \u00B7 3-Step Cart Checkout \u00B7 5-Tab Admin Suite",
       },
       metrics: [
         {
-          value: "6 Categories",
+          value: "9 Pages",
           label:
-            "Instant client-side filtering across All, Streetfoods, Breakfast, Dessert, Beverage, and Drinks with live keyword search.",
+            "End-to-end architecture across Home, About, Interactive Menu, 3-Step Cart, Reservations, Testimonials, Contact, Auth, and Admin Dashboard.",
         },
         {
-          value: "Zero Reloads",
+          value: "17+ Dishes",
           label:
-            "Reactive JavaScript DOM updates and persistent browser localStorage keep cart items, accounts, and menu data in sync.",
+            "Live keyword search and radio filtering across Streetfoods, Breakfast, Dessert, Beverage, and Drinks (\u20B120\u2013\u20B1130) with 5-star ratings.",
         },
         {
-          value: "Dual Flow",
+          value: "5 Admin Tabs",
           label:
-            "Unified customer ordering and table reservation experience paired with dynamic admin menu and account controls.",
+            "Role-guarded dashboard (userRole === 'admin') for KPI analytics, Menu CRUD, Order status lifecycles, Users, and Sales Reports.",
         },
       ],
       sections: [
@@ -240,62 +245,64 @@ export const projects = [
           number: "01",
           eyebrow: "01 \u00B7 The Problem",
           heading:
-            "Making group dining discovery, ordering, and table reservations feel effortless on the web.",
-          body: "Static restaurant menus force diners to scroll through unstructured lists without quick search, category filtering, or an easy way to build an order and reserve a table in one place.",
+            "Bringing barkada dining discovery, cart checkout, table reservations, and restaurant operations into one cohesive web platform.",
+          body: "Built around the story that \u201Cthe best coding sessions and gaming marathons happen over good food,\u201D BarkadaByte set out to replace static restaurant pages with an interactive ordering and management experience tailored for group dining in Binalbagan, Negros Occidental.",
           bullets: [
-            "Customers needed a fast way to browse Filipino comfort food favorites by category and price without full-page reloads.",
-            "Group orders required an interactive shopping cart badge and item counter that persisted across browsing sessions.",
-            "Staff needed a lightweight administrative interface to manage menu items, customer accounts, and reservations without complex backend overhead.",
+            "Diners needed a fast, zero-reload way to search and filter affordable Filipino comfort food and drinks (\u20B120\u2013\u20B1130) by category, rate dishes, and build group orders.",
+            "Checkout needed to reflect real local fulfillment and payment workflows\u2014supporting Delivery (+\u20B130.00) vs. free Store Pickup alongside GCash or Cash on Delivery (COD) and printable order receipts.",
+            "Restaurant staff needed an authenticated admin back-office to add or edit menu items, update order statuses, manage registered customer accounts, and track revenue by category.",
           ],
         },
         {
           number: "02",
           eyebrow: "02 \u00B7 System Architecture",
           heading:
-            "Modular HTML5, CSS3, Bootstrap, and vanilla JavaScript backed by structured localStorage persistence.",
-          body: "BarkadaByte is designed as a fast, client-rendered web application that pairs Bootstrap layout primitives with custom CSS styling and a structured localStorage data layer.",
+            "A 9-page HTML5, CSS3, and vanilla JavaScript architecture synchronized through structured localStorage state keys.",
+          body: "BarkadaByte is engineered as a 9-page client-rendered web application (index.html, about.html, menu.html, cart.html, reservation.html, testimonials.html, contact.html, login.html, and admin.html) where customer actions and admin analytics stay synchronized through a shared browser localStorage persistence engine.",
           bullets: [
-            "UI & Layout Layer: Responsive card grid, persistent dark navigation bar with quick-action icon pills, and warm amber/gold food cards designed around Filipino dining culture.",
-            "State & Storage Layer: Structured JSON serialization in browser localStorage managing menu inventory, cart state, user sessions, and reservation records.",
-            "Interactive Event Pipeline: Vanilla JavaScript event handlers powering real-time search filtering, category tab switching, cart badge updates, and form validation.",
+            "Presentation & Styling Layer: Custom responsive CSS (style.css, contact.css, and dedicated checkout/admin layouts) paired with Poppins and Plus Jakarta Sans typography, Boxicons, and Font Awesome icons.",
+            "Client-Side State Engine (localStorage): Synchronizes active shopping carts (cart), customer order records (bb_orders), CRUD menu catalogs (bb_menu), registered accounts (bb_users), and session tokens (currentUser, userRole).",
+            "Role-Based Auth & Account Safeguards: Toggleable Log in / Sign up flow (#modeToggle) differentiating customers (userRole === 'user') from administrators (userRole === 'admin'), plus an Account Settings modal enforcing a 60-day display-name change cooldown (lastNameChange) and account deletion.",
           ],
         },
         {
           number: "03",
           eyebrow: "03 \u00B7 Core Features & Engineering",
           heading:
-            "From instant streetfood and dessert filtering to cart management and table reservations.",
-          body: "Every interaction in BarkadaByte is built to minimize friction between discovering a dish and completing an order or reservation.",
+            "From live category filtering and 3-step GCash/COD checkout to a 5-tab administrative analytics dashboard.",
+          body: "Every page in BarkadaByte connects the customer-facing dining journey directly to the operational back-office without requiring external database servers.",
           bullets: [
-            "Live Search & Category Pills: Instant filtering across dishes like Halo-Halo Special, Taho, Siomai, Hamburger, and Lomi by category or search query.",
-            "Shopping Cart & Quick Buy: One-click Buy actions with real-time navbar cart counter updates and order summary calculation.",
-            "Table Reservation & Customer Accounts: Validated reservation forms and user profile workflows stored persistently in the browser.",
-            "Admin Management Controls: Dynamic interface for adding, updating, and organizing menu offerings and reviewing customer activity.",
+            "Interactive Menu Discovery (menu.html): Live keyword search (#input), category filters (All, Streetfoods, Breakfast, Dessert, Beverage, Drinks), 3 paginated grids across 17+ dishes (Halo-Halo Special, Taho, Siomai, Lomi, Pancit, Nachofries, Shawarma, Chocolate Float), interactive 5-star ratings, and instant cart badge (#cartCount) updates.",
+            "3-Step Cart & Printable Receipt Flow (cart.html): Step 1 manages +/\u2212 item quantities and Delivery (\u20B130.00) vs. Store Pickup (Free) totals; Step 2 captures customer details and GCash or Cash on Delivery selection; Step 3 renders an Order Confirmed summary with window.print() receipt generation.",
+            "Table Reservations & Social Proof (reservation.html, testimonials.html): Validated table booking form (party count, time, and date) paired with a customer stories showcase highlighting a 4.9 overall rating, 2,400+ happy customers, and 98% return rate.",
+            "5-Tab Admin Suite (admin.html): Auth-guarded portal featuring Dashboard (4 KPI cards, Revenue by Category bar chart, Recent Orders), Menu Items (search, category tabs, Add/Edit/Delete modal synced to bb_menu), Orders (cart-to-order bridge getOrdersFromCart() and status updates across Pending, Confirmed, Completed, Cancelled), Users (bb_users management), and Sales Report (Avg. Order Value, Best Seller, Top Selling Items chart, and category breakdown).",
           ],
         },
         {
           number: "04",
           eyebrow: "04 \u00B7 Impact & Quality Built-In",
-          heading: "A responsive, zero-latency ordering experience with clean visual hierarchy.",
-          body: "By focusing on clear typography, appetizing card presentation, and reliable client-side state management, BarkadaByte delivers a complete end-to-end restaurant web experience.",
+          heading:
+            "End-to-end state continuity between customer ordering flows and back-office restaurant analytics.",
+          body: "Coordinating a 5-member development team as Project Manager while engineering the customer account and localStorage admin workflows ensured that every UI action\u2014from clicking Buy on a \u20B120 Taho to marking an order Completed in the admin suite\u2014reflected immediately across the platform.",
           bullets: [
-            "Immediate visual feedback on search queries, category switches, and cart additions.",
-            "Consistent cross-device layout using Bootstrap grid utilities and custom responsive breakpoints.",
-            "Resilient client-side state handling that preserves user carts and account data across page refreshes.",
+            "Seamless Cart-to-Admin Bridge: Active customer carts and checkout submissions bridge directly into bb_orders, enabling the admin dashboard and sales report tabs to compute live revenue and top-selling items automatically.",
+            "Defensive Session & Profile Controls: Auth guards on admin.html block unauthorized access, while user profile settings validate credential updates and enforce cooldown rules in script.js.",
+            "Cohesive Multi-Page Experience: Responsive navigation, user dropdowns, newsletter confirmations, and warm Filipino comfort-food branding across all 9 pages.",
           ],
         },
       ],
       tools: [
-        "HTML5",
-        "CSS3",
-        "JavaScript (ES6+)",
+        "HTML5 (9-Page Architecture)",
+        "CSS3 (Grid & Flexbox)",
+        "Vanilla JavaScript (ES6+)",
+        "localStorage State Engine",
         "Bootstrap",
-        "localStorage API",
-        "Responsive UI/UX",
+        "Boxicons & Font Awesome",
+        "Google Fonts (Poppins & Plus Jakarta Sans)",
         "Git & GitHub",
       ],
       takeaway:
-        "Thoughtful client-side state management and clear visual categorization can turn a simple restaurant menu into an engaging, app-like ordering and reservation experience.",
+        "Even without a traditional backend server, a well-structured localStorage state schema and role-guarded architecture can power a complete two-sided restaurant platform\u2014connecting live menu filtering and 3-step GCash/COD checkout directly to a 5-tab admin analytics and order management suite.",
     },
   },
 ] as const;
