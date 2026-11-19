@@ -6,19 +6,43 @@ export const navigationItems = [
 
 export const profile = {
   initials: "JV",
-  name: "Jeni\u00F1a Vargas",
+  name: "Jeni\u00F1a Margarette G. Vargas",
   hero: {
-    kicker: "IT student \u00B7 developer \u00B7 problem solver",
     heading: {
-      before: "Building useful",
-      accent: "digital",
-      after: "things, thoughtfully.",
+      firstLine: "I\u2019m Jeni\u00F1a",
+      secondLine: "Margarette G. Vargas",
     },
-    summary:
-      "I\u2019m Jeni\u00F1a, an aspiring IT professional turning ideas into reliable, approachable web experiences.",
-    locationLabel: "Based in",
-    location: ["Negros Occidental", "Philippines"],
-    cta: "Explore selected work",
+    summary: {
+      lead: "An IT student and web developer building thoughtful interfaces and reliable database-driven systems that make everyday workflows feel effortless using ",
+      techStack: "HTML5, CSS3, JavaScript, PHP, MySQL, Bootstrap, jQuery, Java, and VB.NET.",
+    },
+    actions: {
+      primary: {
+        label: "Explore my work",
+        href: "#work",
+      },
+      resume: {
+        label: "View resume",
+        href: "#credentials",
+      },
+      secondary: {
+        label: "More about me",
+        href: "#about",
+      },
+    },
+    availabilityLabel: "Availability",
+    availability: "Open for OJT / Internship & Junior IT / Developer Roles",
+    locationLabel: "Base",
+    location: ["Based in Negros Occidental,", "Philippines"],
+    card: {
+      noteLabel: "Field Note / 001",
+      year: "2026",
+      name: "Jeni\u00F1a Margarette G. Vargas",
+      role: "IT Student & Web Developer",
+      badge: "code meets clarity",
+      portraitUrl: "/margaret img.jpg",
+      portraitAlt: "Portrait of Jeni\u00F1a Margarette G. Vargas",
+    },
   },
 } as const;
 
@@ -123,7 +147,7 @@ export const contactSection = {
 } as const;
 
 export const footer = {
-  copyrightName: "Jeni\u00F1a Margaret G. Vargas",
+  copyrightName: "Jeni\u00F1a Margarette G. Vargas",
   copyrightMark: "\u00A9",
   message: "Designed with curiosity. Built with care.",
 } as const;
